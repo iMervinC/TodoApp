@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react'
-import Switch from './Switch'
+import ListItem from './ListItem'
 
 import TodoContext from '../context/todo-context'
 
@@ -21,7 +21,7 @@ const BoxIput = () => {
   return (
     <div className="box box--input">
       <form onSubmit={(e) => submitHandle(e)}>
-        <Switch />
+        <ListItem />
         <input
           type="text"
           placeholder="Create a new todo..."

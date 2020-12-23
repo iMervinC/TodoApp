@@ -23,4 +23,18 @@
       }
     }
   }
+
+  &--list {
+    margin-top: 25px;
+
+    &__footer {
+      display: flex;
+      margin: auto 25px;
+      align-items: center;
+      justify-content: space-between;
+      color: $VeryLightGrayishBlue;
+      height: 50px;
+      border-top: solid 2px $DarkGrayishBlue;
+    }
+  }
 }
