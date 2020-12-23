@@ -1,0 +1,19 @@
+@mixin gradient {
+  background: linear-gradient (to left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+@mixin respond($breakpoint) {
+  // $breakpoint is simply a variable that can have several values
+
+  @if $breakpoint==desktop {
+    @media only screen and (max-width: 1400px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==mobile {
+    @media only screen and (max-width: 675px) {
+      @content;
+    }
+  }
+}

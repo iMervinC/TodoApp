@@ -1,0 +1,45 @@
+.toggle-container {
+  position: relative;
+  svg {
+    position: absolute;
+    transform: translate(65%, 85%);
+  }
+}
+input[type='checkbox'] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background: $veryDarkGrayishBlue;
+  float: right;
+  border-radius: 100px;
+  transition: all 0.4s ease-in;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: $veryDarkDesaturatedBlue;
+    border-radius: 90px;
+    transition: all 0.4s ease-out;
+    transform: translate(10%, 10%);
+  }
+  &:hover {
+    background: linear-gradient(to left, #57ddff, #c058f3);
+  }
+}
+
+input:checked + label {
+  background: linear-gradient(to left, #57ddff, #c058f3);
+
+  &:after {
+    background: linear-gradient(to left, #57ddff, #c058f3);
+  }
+}
