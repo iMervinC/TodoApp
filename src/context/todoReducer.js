@@ -1,4 +1,10 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from './todo-actions'
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  TOGGLE_TODO,
+  TOGGLE_DARK,
+  CLEAR_COMPLETE,
+} from './todo-actions'
 
 const todoReducer = (state, action) => {
   switch (action.type) {
@@ -8,9 +14,29 @@ const todoReducer = (state, action) => {
         todos: [...state.todos, action.payload],
       }
     case DELETE_TODO:
-      return {}
+      const filltered = state.todos.filter((x) => x.id !== action.payload)
+      return {
+        ...state,
+        todos: [...filltered],
+      }
+
     case TOGGLE_TODO:
-      return {}
+      return {
+        ...state,
+        todos: state.todos.map((x) =>
+          x.id === action.payload ? { ...x, complete: !x.complete } : x
+        ),
+      }
+
+    case CLEAR_COMPLETE:
+      const cleared = state.todos.filter((x) => x.complete !== true)
+      return {
+        ...state,
+        todos: [...cleared],
+      }
+
+    case TOGGLE_DARK:
+      return { ...state, dark: !state.dark }
     default:
       return state
   }

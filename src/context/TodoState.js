@@ -1,11 +1,18 @@
 import { useReducer } from 'react'
 import TodoContext from './todo-context'
 import todoReducer from './todoReducer'
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from './todo-actions'
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  TOGGLE_TODO,
+  TOGGLE_DARK,
+  CLEAR_COMPLETE,
+} from './todo-actions'
 
 const TodoState = ({ children }) => {
   const initialState = {
     todos: [], // {id: 123, text: "Some text", complete: false}
+    dark: true,
   }
 
   const [state, dispatch] = useReducer(todoReducer, initialState)
@@ -23,13 +30,23 @@ const TodoState = ({ children }) => {
     dispatch({ type: TOGGLE_TODO, payload: todo })
   }
 
+  const clearComplete = () => {
+    dispatch({ type: CLEAR_COMPLETE })
+  }
+
+  const toggleDark = () => {
+    dispatch({ type: TOGGLE_DARK })
+  }
   return (
     <TodoContext.Provider
       value={{
         todos: state.todos,
+        dark: state.dark,
         addTodo,
         deleteTodo,
         toggleTodo,
+        toggleDark,
+        clearComplete,
       }}
     >
       {children}

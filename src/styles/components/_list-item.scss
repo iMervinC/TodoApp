@@ -1,0 +1,62 @@
+.item-label {
+  position: relative;
+
+  &__line {
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: $VeryLightGray;
+    top: 8px;
+    transition: all 0.3s ease-in;
+  }
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 65px;
+  color: $veryDarkGrayishBlue;
+
+  &.dark {
+    color: $VeryLightGray;
+  }
+
+  &.dark:hover i {
+    color: $lightGrayishBlueHover;
+  }
+  &:hover i {
+    color: $veryDarkGrayishBlue;
+    transform: scale(1);
+    visibility: visible;
+  }
+
+  i {
+    color: transparent;
+    transform: scale(0.1);
+    cursor: pointer;
+    margin-left: auto;
+    visibility: hidden;
+    transition: all 0.3s ease-in;
+  }
+
+  label {
+    // color: $VeryLightGray;
+    cursor: pointer;
+  }
+
+  &.margin {
+    margin: auto 25px;
+
+    & input {
+      margin-right: 10px;
+    }
+  }
+}
+
+.list-border {
+  position: absolute;
+  background: $darkGrayishBlue;
+  height: 1px;
+  width: 100%;
+}

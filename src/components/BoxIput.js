@@ -1,11 +1,9 @@
 import { useState, useContext } from 'react'
-import ListItem from './ListItem'
-
 import TodoContext from '../context/todo-context'
 
 const BoxIput = () => {
   const [inputText, setInputText] = useState('')
-  const { addTodo, todos } = useContext(TodoContext)
+  const { addTodo, todos, dark } = useContext(TodoContext)
 
   const submitHandle = (e) => {
     e.preventDefault()
@@ -19,9 +17,11 @@ const BoxIput = () => {
   }
 
   return (
-    <div className="box box--input">
+    <div className={`box box--input ${dark ? 'dark' : ''}`}>
       <form onSubmit={(e) => submitHandle(e)}>
-        <ListItem />
+        <div className={`list-item`}>
+          <input className={`${dark ? 'dark' : ''}`} type="checkbox" />
+        </div>
         <input
           type="text"
           placeholder="Create a new todo..."

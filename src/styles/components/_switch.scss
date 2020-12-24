@@ -5,10 +5,18 @@ input[type='checkbox'] {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: $veryDarkGrayishBlue;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: $DarkGrayishBlue;
+
+  &.dark {
+    background: $veryDarkGrayishBlue;
+  }
+
+  &.dark::before {
+    background: $veryDarkDesaturatedBlue;
+  }
 
   &::after {
     content: '\f00c';
@@ -24,7 +32,8 @@ input[type='checkbox'] {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: $veryDarkDesaturatedBlue;
+    background: $VeryLightGray;
+    transition: all 400ms ease-in;
   }
 
   &:hover {
@@ -40,5 +49,16 @@ input[type='checkbox'] {
   }
   &:checked:before {
     display: none;
+  }
+
+  &:checked + div {
+    & > label {
+      transition: all ease-in 0.4s;
+      color: $darkGrayishBlue;
+    }
+    & > .item-label__line {
+      width: 100%;
+      background: $darkGrayishBlue;
+    }
   }
 }
