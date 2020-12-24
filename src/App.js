@@ -2,16 +2,18 @@ import Header from './components/Header'
 import BoxInput from './components/BoxIput'
 import BoxList from './components/BoxList'
 import TodoState from './context/TodoState'
+import Background from './components/Background'
 
 function App() {
   return (
-    <div className="container">
-      <TodoState>
+    <TodoState>
+      <Background />
+      <div className="container">
         <Header />
         <BoxInput />
         <BoxList />
-      </TodoState>
-    </div>
+      </div>
+    </TodoState>
   )
 }
 
