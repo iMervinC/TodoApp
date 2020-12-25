@@ -3,6 +3,7 @@ import BoxInput from './components/BoxIput'
 import BoxList from './components/BoxList'
 import TodoState from './context/TodoState'
 import Background from './components/Background'
+import ToolTip from './components/ToolTip'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <BoxInput />
         <BoxList />
+        <ToolTip />
       </div>
     </TodoState>
   )

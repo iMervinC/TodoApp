@@ -28,6 +28,8 @@
   margin: 0 auto;
   max-width: 540px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   @include respond(mobile) {
     max-width: 90vw;

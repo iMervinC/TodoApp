@@ -1,3 +1,13 @@
+.item {
+  transition: background 400ms ease-in;
+  background: $VeryLightGray;
+  border-radius: 5px;
+  margin: 1px 0;
+  &.dark {
+    background: $veryDarkDesaturatedBlue;
+  }
+}
+
 .item-label {
   position: relative;
 
@@ -13,8 +23,8 @@
 
 .list-item {
   display: flex;
+  position: relative;
   align-items: center;
-  cursor: pointer;
   height: 65px;
   color: $veryDarkGrayishBlue;
 

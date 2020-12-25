@@ -4,10 +4,14 @@ import {
   TOGGLE_TODO,
   TOGGLE_DARK,
   CLEAR_COMPLETE,
+  RE_ODER,
 } from './todo-actions'
 
 const todoReducer = (state, action) => {
   switch (action.type) {
+    case RE_ODER:
+      return { ...state, todos: [...action.payload] }
+
     case ADD_TODO:
       return {
         ...state,
