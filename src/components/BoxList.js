@@ -16,7 +16,7 @@ const BoxList = () => {
   }, [todos])
 
   const onDragEnd = (result) => {
-    const { destination, source, draggableId } = result
+    const { destination, source } = result
 
     if (!destination) {
       return
