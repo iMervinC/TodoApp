@@ -2,6 +2,7 @@
   border-radius: 5px;
   width: 100%;
   background: $VeryLightGray;
+
   transition: all 400ms ease-in;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
@@ -46,6 +47,15 @@
       align-items: center;
       justify-content: space-between;
       height: 50px;
+
+      &.mobile {
+        display: none;
+        @include respond(mobile) {
+          display: flex;
+          margin-top: 25px;
+          justify-content: center;
+        }
+      }
 
       //dark button
       &.dark button {
@@ -94,6 +104,12 @@
         color: $darkGrayishBlue;
         font-size: 15px;
         font-weight: 700;
+
+        &.mobile {
+          @include respond(mobile) {
+            display: none;
+          }
+        }
       }
 
       &__items {

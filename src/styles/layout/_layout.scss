@@ -8,11 +8,19 @@
   width: 100%;
   top: 0;
 
+  @include respond(mobile) {
+    background-image: url('../../images/bg-mobile-light.jpg');
+  }
+
   &.dark {
     background: $veryDarkBlue;
     background-image: url('../../images/bg-desktop-dark.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include respond(mobile) {
+      background-image: url('../../images/bg-mobile-dark.jpg');
+    }
   }
 }
 
@@ -20,4 +28,8 @@
   margin: 0 auto;
   max-width: 540px;
   position: relative;
+
+  @include respond(mobile) {
+    max-width: 90vw;
+  }
 }

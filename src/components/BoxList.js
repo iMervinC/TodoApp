@@ -15,22 +15,38 @@ const BoxList = () => {
   }, [todos])
 
   return (
-    <div className={`box box--list ${dark ? 'dark' : ''}`}>
-      {state.map((x) => (
-        <ListItem key={x.id} label={x.text} id={x.id} active={x.complete} />
-      ))}
-      <div className={`box--list__footer ${dark ? 'dark' : ''}`}>
-        <p className="box--list__footer__items">{todos.length} items left</p>
-        <div className="box--list__footer__group">
-          <button onClick={() => setState(todos)}>All</button>
-          <button onClick={() => setState(active)}>Active</button>
-          <button onClick={() => setState(completed)}>Completed</button>
+    <>
+      <div className={`box box--list ${dark ? 'dark' : ''}`}>
+        <div>
+          {state.map((x) => (
+            <ListItem key={x.id} label={x.text} id={x.id} active={x.complete} />
+          ))}
         </div>
-        <p onClick={() => clearComplete()} className="box--list__footer__clear">
-          Clear Completed
-        </p>
+        <div className={`box--list__footer ${dark ? 'dark' : ''}`}>
+          <p className="box--list__footer__items">{active.length} items left</p>
+          <div className="box--list__footer__group mobile">
+            <button onClick={() => setState(todos)}>All</button>
+            <button onClick={() => setState(active)}>Active</button>
+            <button onClick={() => setState(completed)}>Completed</button>
+          </div>
+          <p
+            onClick={() => clearComplete()}
+            className="box--list__footer__clear"
+          >
+            Clear Completed
+          </p>
+        </div>
       </div>
-    </div>
+      <div className={`box ${dark ? 'dark' : ''}`}>
+        <div className={`box--list__footer mobile ${dark ? 'dark' : ''}`}>
+          <div className="box--list__footer__group">
+            <button onClick={() => setState(todos)}>All</button>
+            <button onClick={() => setState(active)}>Active</button>
+            <button onClick={() => setState(completed)}>Completed</button>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
